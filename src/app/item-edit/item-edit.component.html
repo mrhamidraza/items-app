@@ -1,0 +1,77 @@
+<div class="container mt-3">
+  <mat-card>
+    <div class="edit-header">
+      <button mat-icon-button (click)="closeDialog()" aria-label="Back to list">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <mat-card-title class="text-center">{{title}}</mat-card-title>
+      <span class="placeholder"></span>
+    </div>
+
+    <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" class="form-container" style="padding: 20px;">
+      <div class="full-width-field">
+        <mat-form-field appearance="fill" class="w-100 my-2">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+      </div>
+
+      <div class="full-width-field">
+        <mat-form-field appearance="fill" class="w-100 my-2">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="half-width-fields">
+        <mat-form-field appearance="fill" class="half-width my-2">
+          <mat-label>Variation</mat-label>
+          <input matInput formControlName="variation">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="half-width my-2">
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price" type="number">
+        </mat-form-field>
+      </div>
+
+      <div class="full-width-field">
+        <mat-form-field appearance="fill" class="w-100 my-2">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category">
+            <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="third-width-fields">
+        <mat-form-field appearance="fill" class="third-width my-2">
+          <mat-label>Delivery Price</mat-label>
+          <input matInput formControlName="deliveryPrice" type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="third-width my-2">
+          <mat-label>Pickup Price</mat-label>
+          <input matInput formControlName="pickupPrice" type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="third-width my-2">
+          <mat-label>Dine-In Price</mat-label>
+          <input matInput formControlName="dineInPrice" type="number">
+        </mat-form-field>
+      </div>
+
+      <div class="full-width-field">
+        <mat-form-field appearance="fill" class="w-100 my-2">
+          <mat-label>Image URL</mat-label>
+          <input matInput formControlName="image">
+        </mat-form-field>
+      </div>
+
+      <div class="edit-footer">
+        <a href="#" (click)="closeDialog()" class="close-link" style="color: #000; margin-left: 10px;">Close</a>
+        <button mat-raised-button color="primary" type="submit" class="submit-btn" style="color: white !important;">Submit</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

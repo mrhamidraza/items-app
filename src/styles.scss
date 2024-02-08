@@ -1,0 +1,82 @@
+@import 'theme.scss';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.list-items-header {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 10px;
+}
+
+.header-logo {
+  height: 50px;
+  width: auto;
+  margin-right: 15px;
+}
+
+
+.edit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.text-center {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.full-width-field, .half-width-fields, .third-width-fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.half-width, .third-width {
+  flex: 1;
+}
+
+.half-width.my-2, .third-width.my-2 {
+  margin-right: 8px;
+}
+
+.half-width.my-2:last-child, .third-width.my-2:last-child {
+  margin-right: 0;
+}
+
+.edit-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.close-link {
+  cursor: pointer;
+}
+
+.submit-btn {
+  white-space: nowrap;
+}
+
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 8px;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-infix {
+  border-radius: 8px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  font-size: 0.9rem;
+  padding: 6px 16px;
+}
