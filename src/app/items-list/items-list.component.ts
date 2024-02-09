@@ -32,7 +32,9 @@ import { ItemEditComponent } from '../item-edit/item-edit.component';
 
 export class ItemsListComponent implements OnInit {
   items: Item[] = [];
-  displayedColumns: string[] = ['name', 'description', 'price', 'category' ,'actions'];
+  categories: string[] = ['Pizza', 'Burger', 'Drink'];
+  
+  displayedColumns: string[] = ['image', 'name', 'description', 'price', 'category' ,'actions'];
 
   constructor(private itemService: ItemService, private dialog: MatDialog, private router: Router) {}
 
@@ -45,7 +47,7 @@ export class ItemsListComponent implements OnInit {
   addItem(): void {
     const dialogRef = this.dialog.open(ItemEditComponent, {
       width: '600px',
-      height: '800px',
+      height: 'auto',
       data: {}
     });
 
@@ -56,10 +58,18 @@ export class ItemsListComponent implements OnInit {
     });
   }
 
+  getValidImageUrl(imageUrl?: string): string {
+    if (imageUrl && /^(ftp|http|https):\/\/[^ "]+$/.test(imageUrl)) {
+      return imageUrl;
+    } else {
+      return 'assets/images/logo.jpg';
+    }
+  }
+
   editItem(item: Item): void {
     const dialogRef = this.dialog.open(ItemEditComponent, {
       width: '600px',
-      height: '800px',
+      height: 'auto',
       data: { item: item }
     });
   

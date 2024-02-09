@@ -1,77 +1,52 @@
 <div class="container mt-3">
-  <mat-card>
-    <div class="edit-header">
-      <button mat-icon-button (click)="closeDialog()" aria-label="Back to list">
-        <mat-icon>arrow_back</mat-icon>
+  <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" class="pb-3">
+
+    <div class="d-flex align-items-center justify-content-between position-relative">
+      <button type="button" class="btn btn-light" (click)="closeDialog()">
+        <i class="bi bi-arrow-left custom-icon"></i>
       </button>
-      <mat-card-title class="text-center">{{title}}</mat-card-title>
-      <span class="placeholder"></span>
+      <h2 class="text-center mb-0">{{title}}</h2>
     </div>
+    <hr class="hr-group mb-6" />
 
-    <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" class="form-container" style="padding: 20px;">
-      <div class="full-width-field">
-        <mat-form-field appearance="fill" class="w-100 my-2">
-          <mat-label>Name</mat-label>
-          <input matInput formControlName="name">
-        </mat-form-field>
+    <div class="row p-2 mt-4">
+      <div class="col-md-12 form-group">
+        <input type="text" class="form-control" id="name" formControlName="name" placeholder="Item name *">
       </div>
 
-      <div class="full-width-field">
-        <mat-form-field appearance="fill" class="w-100 my-2">
-          <mat-label>Description</mat-label>
-          <textarea matInput formControlName="description"></textarea>
-        </mat-form-field>
+      <div class="col-md-12 form-group">
+        <textarea class="form-control textarea" id="description" formControlName="description" placeholder="Description *"></textarea>
       </div>
 
-      <div class="half-width-fields">
-        <mat-form-field appearance="fill" class="half-width my-2">
-          <mat-label>Variation</mat-label>
-          <input matInput formControlName="variation">
-        </mat-form-field>
-
-        <mat-form-field appearance="fill" class="half-width my-2">
-          <mat-label>Price</mat-label>
-          <input matInput formControlName="price" type="number">
-        </mat-form-field>
+      <div class="col-md-6 form-group">
+        <input type="text" class="form-control" id="variation" formControlName="variation" placeholder="Variation name">
+      </div>
+      <div class="col-md-6 form-group">
+        <input type="number" class="form-control" id="price" formControlName="price" placeholder="Price *">
+      </div>
+      
+      <div class="col-md-12 form-group">
+        <button type="button" class="btn btn-yellow-border">Add variation</button>
       </div>
 
-      <div class="full-width-field">
-        <mat-form-field appearance="fill" class="w-100 my-2">
-          <mat-label>Category</mat-label>
-          <mat-select formControlName="category">
-            <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
-          </mat-select>
-        </mat-form-field>
+      <div class="col-md-4 form-group">
+        <input type="number" class="form-control" id="deliveryPrice" formControlName="deliveryPrice" placeholder="Delivery price">
+      </div>
+      <div class="col-md-4 form-group">
+        <input type="number" class="form-control" id="pickupPrice" formControlName="pickupPrice" placeholder="Pickup price">
+      </div>
+      <div class="col-md-4 form-group">
+        <input type="number" class="form-control" id="dineInPrice" formControlName="dineInPrice" placeholder="Dine in price">
       </div>
 
-      <div class="third-width-fields">
-        <mat-form-field appearance="fill" class="third-width my-2">
-          <mat-label>Delivery Price</mat-label>
-          <input matInput formControlName="deliveryPrice" type="number">
-        </mat-form-field>
-
-        <mat-form-field appearance="fill" class="third-width my-2">
-          <mat-label>Pickup Price</mat-label>
-          <input matInput formControlName="pickupPrice" type="number">
-        </mat-form-field>
-
-        <mat-form-field appearance="fill" class="third-width my-2">
-          <mat-label>Dine-In Price</mat-label>
-          <input matInput formControlName="dineInPrice" type="number">
-        </mat-form-field>
+      <div class="col-md-12 form-group">
+        <input type="text" class="form-control" id="image" formControlName="image" placeholder="Image URL">
       </div>
 
-      <div class="full-width-field">
-        <mat-form-field appearance="fill" class="w-100 my-2">
-          <mat-label>Image URL</mat-label>
-          <input matInput formControlName="image">
-        </mat-form-field>
+      <div class="col-md-12 d-flex justify-content-between">
+        <button type="button" class="btn btn-link" (click)="closeDialog()">Close</button>
+        <button type="submit" class="btn btn-primary">{{submitButtonCaption}}</button>
       </div>
-
-      <div class="edit-footer">
-        <a href="#" (click)="closeDialog()" class="close-link" style="color: #000; margin-left: 10px;">Close</a>
-        <button mat-raised-button color="primary" type="submit" class="submit-btn" style="color: white !important;">Submit</button>
-      </div>
-    </form>
-  </mat-card>
+    </div>  
+  </form>
 </div>

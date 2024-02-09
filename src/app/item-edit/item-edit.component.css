@@ -1,0 +1,76 @@
+.form-group {
+  margin-bottom: 1rem;
+  border-radius: 25px !important;
+}
+button {
+  height: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.form-control, .form-control:focus {
+  height: 50px;
+  box-shadow: none;
+}
+.form-control.textarea, .form-control.textarea:focus {
+  height: 120px;
+}
+.form-control.ng-invalid.ng-touched, .form-select.ng-invalid.ng-touched {
+  border-color: #dc3545;
+}
+.no-border {
+  border: none;
+  box-shadow: none;
+}
+.btn-link {
+  color: #000;
+}
+
+.btn-primary {
+  background-color: #FFBD00;
+  border-color: #FFBD00;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background-color: #E1AC00;
+  border-color: #E1AC00;
+}
+
+.form-control:focus {
+  border-color: #FFBD00;
+}
+
+.form-control::placeholder , select {
+  color: #7d8388;
+  opacity: 1;
+}
+
+.form-control:focus {
+  border-color: #E1AC00;
+  box-shadow: 0 0 0 0.2rem rgba(255, 189, 0, 0.25);
+}
+.position-relative {
+  position: relative;
+}
+
+.hr-group {
+  color: #7d8388;
+}
+.custom-icon {
+  font-size: 1.5rem;
+  color: #000;
+}
+.btn-yellow-border {    border: 2px solid #FFBD00;
+  background-color: white;
+  color: #FFBD00;
+  padding: 0px 30px;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  height: 40px;
+}
+
+.btn-yellow-border:hover,
+.btn-yellow-border:focus {
+  background-color: #e1ac00;
+  border-color: #e1ac00;
+  color: white;
+}

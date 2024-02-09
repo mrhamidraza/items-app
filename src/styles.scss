@@ -1,4 +1,5 @@
 @import 'theme.scss';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -79,4 +80,35 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .submit-btn {
   font-size: 0.9rem;
   padding: 6px 16px;
+}
+.mat-mdc-dialog-surfacer {
+  border-radius: 100px !important;
+}
+
+.bi.bi-pencil-square {
+  font-size: 22px;
+}
+.bi.bi-trash {
+  font-size: 22px;
+}
+.bi.bi-list {
+  font-size: 22px;
+}
+
+table {
+  border-spacing: 0px 0px !important;
+}
+
+.lighter-row td{
+  background-color: #eeeeee !important;
+}
+
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 1.5em auto, 100%;
 }

@@ -3,3 +3,27 @@
   color: #333;
   margin: 20px 0;
 }
+
+.btn-primary {
+  background-color: #FFBD00;
+  border-color: #FFBD00;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background-color: #E1AC00;
+  border-color: #E1AC00;
+}
+
+.custom-select-home {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 1.2em auto, 100%;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  width: 300px;
+}

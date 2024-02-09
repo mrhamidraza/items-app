@@ -38,6 +38,7 @@ export class ItemEditComponent implements OnInit {
   isEdit: boolean = false;
   itemId?: number;
   title = 'Add Item';
+  submitButtonCaption = 'Create item'
 
 
   constructor(
@@ -52,16 +53,17 @@ export class ItemEditComponent implements OnInit {
       name: ['', Validators.required],
       description: ['', Validators.required],
       variation: [''],
-      price: [0, [Validators.required, Validators.min(0)]],
+      price: ['', [Validators.required, Validators.min(0)]],
       category: ['', Validators.required],
-      deliveryPrice: [0, Validators.min(0)],
-      pickupPrice: [0, Validators.min(0)],
-      dineInPrice: [0, Validators.min(0)],
-      image: ['']
+      deliveryPrice: ['', Validators.min(0)],
+      pickupPrice: ['', Validators.min(0)],
+      dineInPrice: ['', Validators.min(0)],
+      image: ['', Validators.required]
     });
 
     if (this.data.item) {
       this.title = 'Edit Item';
+      this.submitButtonCaption = 'Update item';
       this.isEdit = true;
       this.itemId = this.data.item.id;
       this.itemForm.patchValue(this.data.item);
@@ -92,23 +94,30 @@ export class ItemEditComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.itemForm.valid) {
-      const formData = this.itemForm.value;
-      
-      if (this.isEdit && this.itemId) {
-        this.itemService.updateItem({ ...formData, id: this.itemId }).subscribe({
-          next: (result) => this.dialogRef.close(result),
-          error: (error) => console.error('Error updating item:', error),
-        });
-      } else {
-        this.itemService.addItem(formData).subscribe({
-          next: (result) => this.dialogRef.close(result),
-          error: (error) => console.error('Error adding item:', error),
-        });
-      }
+    if (this.itemForm.invalid) {
+      Object.keys(this.itemForm.controls).forEach(field => {
+        const control = this.itemForm.get(field);
+        control?.markAsTouched({ onlySelf: true });
+      });
+  
+      return;
+    }
+  
+    const formData = this.itemForm.value;
+    
+    if (this.isEdit && this.itemId) {
+      this.itemService.updateItem({ ...formData, id: this.itemId }).subscribe({
+        next: (result) => this.dialogRef.close(result),
+        error: (error) => console.error('Error updating item:', error),
+      });
+    } else {
+      this.itemService.addItem(formData).subscribe({
+        next: (result) => this.dialogRef.close(result),
+        error: (error) => console.error('Error adding item:', error),
+      });
     }
   }
-
+  
   goBack(): void {
     this.router.navigate(['/items-list']);
   }
